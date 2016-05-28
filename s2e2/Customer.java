@@ -15,26 +15,22 @@ public class Customer implements Runnable {
     public void run() {
         takeBasket();
         try {
-            Thread.sleep(50);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         returnBasket();
     }
-    synchronized void takeBasket()
-    {
-        try {
-            cs.release();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Taking basket");
+
+    synchronized void takeBasket() {
+        cs.acquire();
+        System.out.println("Taking basket. Available: " + cs.getCurrent());
     }
 
     synchronized void returnBasket()
     {
-        cs.take();
-        System.out.println("Returning basket");
+        cs.release();
+        System.out.println("Returning basket. Available: " + cs.getCurrent());
     }
 
 

@@ -1,0 +1,47 @@
+Taking basket. Available: 2
+Taking basket. Available: 1
+Taking basket. Available: 0
+Returning basket. Available: 1
+Taking basket. Available: 0
+Returning basket. Available: 1
+Taking basket. Available: 0
+Returning basket. Available: 1
+Taking basket. Available: 0
+Returning basket. Available: 1
+Returning basket. Available: 2
+Taking basket. Available: 1
+Taking basket. Available: 0
+Returning basket. Available: 1
+Taking basket. Available: 0 ///////////////////////////////////////
+Taking basket. Available: 0
+Returning basket. Available: 1
+Returning basket. Available: 1
+Returning basket. Available: 2
+Returning basket. Available: 3
+
+Process finished with exit code 0
+
+
+
+Taking basket. Available: 2
+Taking basket. Available: 1
+Taking basket. Available: 0
+Returning basket. Available: 1 //////////////////////////////////
+Returning basket. Available: 1
+Returning basket. Available: 1
+Taking basket. Available: 0
+Taking basket. Available: 0
+Taking basket. Available: 0
+Returning basket. Available: 1
+Taking basket. Available: 0
+Returning basket. Available: 1
+Taking basket. Available: 0
+Returning basket. Available: 1
+Taking basket. Available: 0
+Returning basket. Available: 1
+Taking basket. Available: 0
+Returning basket. Available: 1
+Returning basket. Available: 2
+Returning basket. Available: 3
+
+Process finished with exit code 0

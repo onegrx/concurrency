@@ -6,16 +6,12 @@ package s2e2;
 public class Main {
 
     public static void main(String[] args) {
-        CountingSemaphore cs = new CountingSemaphore(2);
+        CountingSemaphore cs = new CountingSemaphore(3);
 
-        Customer c1 = new Customer(cs);
-        new Thread(c1).start();
-
-        Customer c2 = new Customer(cs);
-        new Thread(c2).start();
-
-        Customer c3 = new Customer(cs);
-        new Thread(c3).start();
+        for (int i = 0; i < 10; i++) {
+            Customer customer = new Customer(cs);
+            new Thread(customer).start();
+        }
     }
 }
 
