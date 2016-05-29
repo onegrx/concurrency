@@ -1,4 +1,4 @@
-package s3e1;
+package s3e2;
 
 /**
  * Created by onegrx on 29.05.16.
