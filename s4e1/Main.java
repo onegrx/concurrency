@@ -10,9 +10,14 @@ public class Main {
     private static Buffer monitor = new Buffer();
     private static Set<Thread> threads = new HashSet<>();
     private static Random rand = new Random();
+
     private static final int noOfProcesses = 5;
+    private static final int noOfOperations = 4;
 
     public static void main(String[] args) {
+
+        System.out.println("The beginning.");
+
 
         Thread producer =
                 new Thread(new Producer(monitor, rand.nextInt(10) + 1, 0));
@@ -21,7 +26,7 @@ public class Main {
 
         for (int i = 0; i < noOfProcesses; i++) {
             Thread process =
-                    new Thread(new Process(monitor, rand.nextInt(10) + 1, 0));
+                    new Thread(new Process(monitor, rand.nextInt(10) + 1, 0, i));
             threads.add(process);
             process.start();
         }

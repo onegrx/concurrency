@@ -20,13 +20,19 @@ public class Buffer {
         }
     }
 
-    public void takeItem(int i) {
+    public void takeItem(int i, String name) {
         lock.lock();
         try {
             if(available[i] == 0) {
                 condition[i].await();
             }
             available[i]--;
+
+            System.out.println("Running " + name);
+            System.out.println("Taking from # " + i);
+            System.out.println("State of # " + i + " : " + available[i]);
+            System.out.println();
+
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         } finally {
@@ -34,10 +40,14 @@ public class Buffer {
         }
     }
 
-    public void returnItem(int i) {
+    public void returnItem(int i, String name) {
         lock.lock();
         try {
             available[i]++;
+            System.out.println("Running " + name);
+            System.out.println("Giving to # " + i);
+            System.out.println("State of # " + i + " : " + available[i]);
+            System.out.println();
             condition[i].signal();
         } finally {
             lock.unlock();
