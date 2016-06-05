@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class MainPB {
 
-    public static void main(String [] args){
+    public static void main(String [] args) {
 
         int processNumber = 4;
         int buffSize = 8;
@@ -31,7 +31,7 @@ public class MainPB {
         }
     }
 
-    public static class Buffer{
+    public static class Buffer {
 
         int buff[];
         int processNumber;
@@ -44,6 +44,7 @@ public class MainPB {
             }
         }
 
+        ///
         public void process(int j, int i){
             if(i == processNumber - 1) buff[j] = -1; // cause processes start form 0
             else buff[j] = i;
@@ -52,7 +53,7 @@ public class MainPB {
 
     }
 
-    public static class BufferMonitor{
+    public static class BufferMonitor {
 
         final Lock lock = new ReentrantLock();
         final Condition[] queue; // to stop process
@@ -94,7 +95,7 @@ public class MainPB {
         }
     }
 
-    public static class Process implements Runnable{
+    public static class Process implements Runnable {
 
         int number;
         int buffSize;
@@ -107,23 +108,25 @@ public class MainPB {
             this.buffMonitor = buffMonitor;
         }
 
-        public void run(){
+        public void run() {
             int j = 0;
-            int k = 0;
-            while(k < 10){
+            for (int i = 0; i < 10; i++) {
+
                 try {
                     buffMonitor.take(number, j); //my number and place in buff that i want to process
-                }catch (InterruptedException e){
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+
                 buffMonitor.put(number);
+
                 try {
                     Thread.sleep(r.nextInt(1000));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+
                 j = (j + 1) % buffSize;
-                k++;
             }
         }
     }
