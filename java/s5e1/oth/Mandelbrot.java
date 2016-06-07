@@ -1,4 +1,4 @@
-package s5e1.ania;
+package s5e1.oth;
 
 /**
  * Created by onegrx on 05.06.16.
